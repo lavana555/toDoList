@@ -1,6 +1,47 @@
 import React from 'react';
+import TodoListTask from './ToDoListTask';
+//import TodoListFooter from './TodoListFooter.js';
 
 
+
+
+class TodoListTasks extends React.Component {
+    render = () => {
+
+        let taskElements=this.props.tasks.map(task =><TodoListTask title={task.title} isDone={task.isDone} ispriority={task.ispriority} />);
+            
+
+
+        
+
+        return (
+            <div className="todoList-tasks">
+           {taskElements}
+
+
+        </div>
+        );
+    }
+ }
+ export default TodoListTasks;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 
 class TodoListTasks extends React.Component {
     render = () => {
@@ -27,3 +68,6 @@ class TodoListTasks extends React.Component {
     }
  }
  export default TodoListTasks;
+
+
+ */

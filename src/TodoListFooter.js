@@ -1,12 +1,21 @@
 import React from 'react';
 
 class TodoListFooter extends React.Component {
+
+
+
+
     render = () => {
+
+        let classForAll=this.props.filtetValue==="All"? "filter-active":"";
+        let classForCompleted=this.props.filtetValue==="Completed"? "filter-active":"";
+        let classForActive=this.props.filtetValue==="Active"? "filter-active":"";
+
         return (
             <div className="todoList-footer">
-            <button>All</button>
-            <button>Completed</button>
-            <button>Active</button>
+            <button className={classForAll}>All</button>
+            <button className={classForCompleted}>Completed</button>
+            <button className={classForActive}>Active</button>
         </div>
         );
     }
