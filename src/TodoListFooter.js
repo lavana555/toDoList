@@ -1,53 +1,50 @@
 import React from 'react';
+import ButtonFooter from './ButtonFooter';
 
 class TodoListFooter extends React.Component {
+    state = {
 
+        isHidden: true
+    }
+    onAllFilterClick = () => {
+        this.props.newFilterColor("All")
+    }
+    onCompletedFilterClick = () => {
+        this.props.newFilterColor("Completed")
+    }
+    onActiveFilterClick = () => {
+        this.props.newFilterColor("Active")
+    }
+
+     onKorzinaFilterClick=()=>{
+        this.props.newFilterColor("korzina")
+     }
+
+
+    onShowFiltersClick = () => {
+        this.setState({ isHidden: false })
+    }
+    onHideFiltersClick = () => {
+        this.setState({ isHidden: true })
+    }
 
 
 
     render = () => {
-        // // function buttonClick () {
-        // // var   classForAll='filter-active';
-        // onclick={this.props.filtetValue='filter-active'
-        
-
-    //    function buttonClick() {
-    //     let classForAll=" ";
-    //     let classForCompleted=' ';
-
-    //          if (this.props.filtetValue==="All") 
-    //          {let classForAll="filter-active"
-    //          } else if (this.props.filtetValue==="Completed") {
-    //          let classForCompleted="filter-active" 
-    //         }else if (this.props.filtetValue==="Active" )
-    //       { let classForCompleted="filter-active"   
-    //      }
-    //     }
-
-          let classForAll=this.props.filtetValue==="All"? "filter-active":"";
-          let classForCompleted=this.props.filtetValue==="Completed"? "filter-active":"";
-           let classForActive=this.props.filtetValue==="Active"? "filter-active":"";
-        
-         
-                        return (
-                           
+        return (
             <div className="todoList-footer">
-            {/* <button onClick={()=>{this.props.newFilterColor("All")}} onClick={()=>this.props.chekedFilter(' ')} className={classForAll}>All</button>
-            <button onClick={()=>{this.props.newFilterColor("Completed")}} onClick={()=>this.props.chekedFilter('true')} className={classForCompleted}>Completed</button>
-            <button  onClick={()=>{this.props.newFilterColor("Active")}} onClick={()=>this.props.chekedFilter('false')} className={classForActive}>Active</button>
-         */}
-        
-        
-            <button onClick={()=>{this.props.newFilterColor("All")}}   className={classForAll}>All</button>
-            <button onClick={()=>{this.props.newFilterColor("Completed")}}  className={classForCompleted}>Completed</button>
-            <button  onClick={()=>{this.props.newFilterColor("Active")}}   className={classForActive}>Active</button>
-        
-        
-        
-        
-        </div>
+                <ButtonFooter onAllFilterClick={this.onAllFilterClick}
+                    onCompletedFilterClick={this.onCompletedFilterClick}
+                    onActiveFilterClick={this.onActiveFilterClick}
+                    onShowFiltersClick={this.onShowFiltersClick}
+                    onHideFiltersClick={this.onHideFiltersClick}
+                    onKorzinaFilterClick={this.onKorzinaFilterClick}
+                    state={this.state}
+                    filtetValue={this.props.filtetValue}
+                />
+            </div>
         );
     }
- }
- export default TodoListFooter;
- 
+}
+export default TodoListFooter;
+ /////////////// сделать вместо кнопок компоненту батон

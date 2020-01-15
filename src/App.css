@@ -19,3 +19,18 @@
 background-color: blue;
 
 }
+.error {
+	border-color: red;
+}
+.todoList-task.done {
+  opacity:0.5;
+}
+
+.App {
+  display: flex;
+  flex-direction: row;
+}
+
+.todoList {
+  width: 300px;
+}
