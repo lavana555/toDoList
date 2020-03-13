@@ -6,6 +6,7 @@ import TodoListFooter from './TodoListFooter.js';
 import TodoListTitle from './TodoListTitle';
 import AddNewItemForm from './AddNewItemForm';
 import { connect } from "react-redux";
+import {ADD_TASK, CHANGE_TASK, DELETE_TASK, onAddItemCLickAC, onChangeTaskAC, onDeleteTaskAC} from "./reducer";
 
 
 
@@ -163,29 +164,32 @@ const MapDispatchToProps = (dispatch) => {
 
     return {
         onAddItemCLick: (newTask, todolistId) => {
-            const action = {
-                type: "ADD-TASK",
-                newTask,
-                todolistId,
-
-            }
+            // const action = {
+            //     type: ADD_TASK,
+            //     newTask,
+            //     todolistId,
+            //
+            // }
+            const action=onAddItemCLickAC(newTask, todolistId)
             dispatch(action)
         },
 
         onChangeTask: (newT,todolistId) => {
-            const action = {
-                type: "CHANGE-TASK",
-                newT, 
-                todolistId
-            }
+            // const action = {
+            //     type: CHANGE_TASK,
+            //     newT,
+            //     todolistId
+            // }
+            const action=onChangeTaskAC(newT,todolistId)
             dispatch(action)
         },
         onDeleteTask: (newtask,todolistId) => {
-            const action = {
-                type: "DELETE-TASK",
-                newtask,
-                todolistId
-            }
+            // const action = {
+            //     type: DELETE_TASK,
+            //     newtask,
+            //     todolistId
+            // }
+            const action= onDeleteTaskAC(newtask,todolistId)
             dispatch(action)
         }
     }
